@@ -1,0 +1,27 @@
+package classes;
+
+public class Supermarket {
+    private CashDesk cashDesk;
+    private SupermarketWarehouse productsInSupermarket;
+    private SupermarketQueue queue;
+    private String name;
+
+    public Supermarket() {
+        this.cashDesk = new CashDesk();
+        this.queue = new SupermarketQueue();
+        this.productsInSupermarket = new SupermarketWarehouse();
+        new GenerateProducts(this.productsInSupermarket);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void removeProduct(Product product) {
+        productsInSupermarket.removeProduct(product);
+    }
+
+    public void removeCountOfProduct(Product product, int count) {
+        productsInSupermarket.removeCountFromProduct(product, count);
+    }
+}
